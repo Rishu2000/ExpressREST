@@ -9,3 +9,8 @@ app.get("/",(req,res) => {
 app.listen(port,() =>{
     console.log("server started in "+port);
 });
+
+// Mapping
+//     (basic)                         (user friendly)
+//     fetch                              Axios
+//     http-server                        express
