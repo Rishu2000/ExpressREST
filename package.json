@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start":"node server",
+    "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Rishu2000/ExpressREST/issues"
   },
-  "homepage": "https://github.com/Rishu2000/ExpressREST#readme"
+  "homepage": "https://github.com/Rishu2000/ExpressREST#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
