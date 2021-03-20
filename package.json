@@ -1,0 +1,20 @@
+{
+  "name": "expressrest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start":"node server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rishu2000/ExpressREST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rishu2000/ExpressREST/issues"
+  },
+  "homepage": "https://github.com/Rishu2000/ExpressREST#readme"
+}
