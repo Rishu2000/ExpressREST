@@ -10,6 +10,10 @@ app.get("/",(req,res) => {
     }
 });
 
+app.post("/",express.json(),(req,res) => {
+    res.json(req.body);
+});
+
 app.use("/api",api);
 
 module.exports = app;
