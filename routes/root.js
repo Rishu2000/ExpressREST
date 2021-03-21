@@ -3,8 +3,11 @@ const api = require("./api");
 const app = express.Router();
 
 app.get("/",(req,res) => {
-    console.log(req.headers);
-    res.json("Welcome to GFGs API server.");
+    if(req.headers["user-agent"].toLowerCase().indexOf("postman") > -1){
+        res.json("Welcome Developer.")
+    }else{    
+        res.json("Welcome to GFGs API server.");
+    }
 });
 
 app.use("/api",api);
