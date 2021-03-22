@@ -7,11 +7,16 @@ let Authentication = false;
 app.use(express.json());
 
 app.get("/",(req,res) => {
-    res.json(users.map((user,key) => {
-        const a = {UserID:key,...user};
-        delete a.Password;
-        return a;
-    }));
+    if(Authentication){
+        res.json(users.map((user,key) => {
+            const a = {UserID:key,...user};
+            delete a.Password;
+            return a;
+        }));
+    }
+    else {
+        res.status(406).json("Please Login to see.");
+    }
 });
 
 app.post("/login",(req,res) => {
