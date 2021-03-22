@@ -2,11 +2,8 @@ const express = require("express");
 const users = require("../constants/users");
 const app = express.Router();
 
-let Authentication = false;
-
-app.use(express.json());
-
 app.get("/",(req,res) => {
+    const Authentication = false;
     if(Authentication){
         res.json(users.map((user,key) => {
             const a = {UserID:key,...user};

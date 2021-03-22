@@ -4,6 +4,7 @@ const root = require("./routes/root")
 const app = express();
 const port = 80;
 
+app.use(express.json());
 app.use(morgan("dev"));
 app.use("/",root);
 
