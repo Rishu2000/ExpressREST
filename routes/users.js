@@ -3,8 +3,8 @@ const users = require("../constants/users");
 const app = express.Router();
 
 app.get("/",(req,res) => {
-    res.json(users.map((user) => {
-        const a = {...user};
+    res.json(users.map((user,key) => {
+        const a = {UserID:key,...user};
         delete a.Password;
         return a;
     }));
@@ -13,7 +13,7 @@ app.get("/",(req,res) => {
 app.get("/:id",(req,res) => {
     const id = +req.params.id;
     if(users[id]){
-        const a = {...users[id]};
+        const a = {UserID:id,...users[id]};
         delete a.Password;
         res.json(a);
     }else{
