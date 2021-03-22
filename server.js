@@ -8,7 +8,9 @@ const port = 80;
 app.use(express.json());
 app.use(
     session({
-        secret: "corona"
+        secret: "corona",
+        resave:false,
+        saveUninitialized:false
     }))
 app.use(morgan("dev"));
 app.use("/",root);
