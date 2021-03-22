@@ -7,6 +7,7 @@ const port = 80;
 app.use(morgan("dev"));
 app.use("/",root);
 
+
 app.listen(port,() =>{
     console.log("server started in "+port);
 });
