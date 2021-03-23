@@ -34,6 +34,13 @@ app.post("/",(req,res) => {
                 Message:"Username, Password and Name should be at least 4 character in length."
             });
         }else{
+            const matches = users.filter((u) => u.Username === Username);
+            if(matches.length > 0){
+                res.status(409).json({
+                    Success:false,
+                    Message:"User already exists!"
+                })
+            }else{
             users.push({
                 Username,
                 Name,
@@ -44,6 +51,7 @@ app.post("/",(req,res) => {
                 Success:true,
                 Message:`User ${Username} has been added to the database.`
             })
+        }
         }
     }
 })
