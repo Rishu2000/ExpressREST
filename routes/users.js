@@ -101,8 +101,8 @@ app.get("/:id",(req,res) => {
 
 app.delete("/:id",(req,res)=> {
     const id = +req.params.id;
-    if(users[id] && users[id].Name){
-        users[id] = {};
+    if(users[id]){
+        delete users[id];
         res.status(204).json();
     }else{
         res.status(404).json("Error! User Not Found!");
