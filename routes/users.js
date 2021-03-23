@@ -3,7 +3,7 @@ const users = require("../constants/users");
 const app = express.Router();
 
 app.get("/",(req,res) => {
-    const Authentication = req.session;
+    const Authentication = req.session.Authentication;
     if(Authentication){
         res.json(users.map((user,key) => {
             const a = {UserID:key,...user};
