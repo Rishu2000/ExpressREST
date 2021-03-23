@@ -3,7 +3,7 @@ const users = require("../constants/users");
 const app = express.Router();
 
 app.get("/",(req,res) => {
-    const Authentication = false;
+    const Authentication = req.session;
     if(Authentication){
         res.json(users.map((user,key) => {
             const a = {UserID:key,...user};
@@ -23,18 +23,25 @@ app.post("/login",(req,res) => {
     else{
         const match = users.filter(u => u.Username.toLowerCase() === Username.toLowerCase() && u.Password === Password)
         if(match.length === 1){
-            Authentication = true;
+            const user = {...match[0]};
+            delete user.Password;
+            req.session.Authentication = user;
             res.json({Success:true})
         }else if(match.length === 0){
-            Authentication = false;
-            res.status(401).json("Oops! Bad credentials.")
+            req.session.destroy(() => 
+                res.status(401).json("Oops! Bad credentials."))
         }else{
             res.status(406).json("multiple user exists.")
         }
     }
 })
+app.post("/logout",(req,res) => {
+    res.destroy();
+    res.json({Success:true});
+})
 
 app.get("/login",(req,res) => {
+    const Authentication = req.session;
     res.json({Authentication});
 })
 
