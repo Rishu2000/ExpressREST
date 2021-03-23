@@ -41,7 +41,7 @@ app.post("/logout",(req,res) => {
 })
 
 app.get("/login",(req,res) => {
-    const Authentication = req.session;
+    const Authentication = req.session.Authentication;
     res.json({Authentication});
 })
 
