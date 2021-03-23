@@ -40,6 +40,10 @@ app.post("/",(req,res) => {
                 Password,
                 LinkedIn
             });
+            res.status(201).json({
+                Success:true,
+                Message:`User ${Username} has been added to the database.`
+            })
         }
     }
 })
@@ -65,7 +69,7 @@ app.post("/login",(req,res) => {
 })
 
 app.post("/logout",(req,res) => {
-    res.destroy();
+    req.session.destroy();
     res.json({Success:true});
 })
 
