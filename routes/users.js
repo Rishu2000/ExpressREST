@@ -61,9 +61,11 @@ app.post("/login",(req,res) => {
             res.json({Success:true})
         }else if(match.length === 0){
             req.session.destroy(() => 
-                res.status(401).json("Oops! Bad credentials."))
-        }else{
-            res.status(406).json("multiple user exists.")
+                res.status(401).json("Oops! Bad credentials! Try Again!"))
+        }else if(match.length > 1){
+            req.session.destroy(() => {
+                res.status(500).json("multiple user matching.")
+            })
         }
     }
 })
